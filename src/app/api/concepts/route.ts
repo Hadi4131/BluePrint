@@ -62,7 +62,8 @@ export async function POST(req: NextRequest) {
                 // Escape quotes in prompt
                 const cleanPrompt = imagePrompt.replace(/"/g, '\\"');
 
-                const { stdout, stderr } = await execAsync(`python "${scriptPath}" "${cleanPrompt}"`, { maxBuffer: 50 * 1024 * 1024 });
+                const pythonCommand = process.platform === "win32" ? "python" : "python3";
+                const { stdout, stderr } = await execAsync(`${pythonCommand} "${scriptPath}" "${cleanPrompt}"`, { maxBuffer: 50 * 1024 * 1024 });
 
                 if (stderr) console.error("Python Stderr:", stderr);
 
