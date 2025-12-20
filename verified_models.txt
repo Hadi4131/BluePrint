@@ -1,0 +1,15 @@
+Verified Gemini Models Used in Blueprint (Gemini 3 Launch Ready):
+
+1. gemini-3-pro-preview
+   - Usage: Primary Logic, Code Generation (React/Tailwind)
+   - Configuration: src/lib/gemini.ts
+
+2. gemini-3-flash-preview
+   - Usage: Visual Concept Analysis (Text-to-JSON)
+   - Configuration: src/app/api/concepts/route.ts
+   - Features: thinkingLevel="medium"
+
+3. gemini-3-pro-image-preview
+   - Usage: Image Generation (Text-to-Image)
+   - Configuration: src/scripts/generate_images.py
+   - Note: Accessed via Python SDK with response_modalities=["IMAGE"]
